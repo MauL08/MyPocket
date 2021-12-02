@@ -7,7 +7,10 @@ app.use(express.json());
 
 // Routes
 const pocketRoute = require('./routes/pocketRoute');
-app.use('/main', pocketRoute);
+const cashRoute = require('./routes/cashRoute');
+
+app.use('/main/pocket', pocketRoute);
+app.use('/main/cash', cashRoute);
 
 // Connect MongoDB
 mongoose.connect(process.env.MONGODB_CONNECT, () => {
